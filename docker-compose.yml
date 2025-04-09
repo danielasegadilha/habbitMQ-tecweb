@@ -13,12 +13,12 @@ services:
       - ./volumes/mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: senha
-      MYSQL_DATABASE: danielasegadilha # Opcional: cria um banco de dados inicial
-      MYSQL_USER: root # Opcional: cria um usuário específico
+      MYSQL_DATABASE: swm_database # Opcional: cria um banco de dados inicial
+      MYSQL_USER: swm_user       # Opcional: cria um usuário específico
       MYSQL_PASSWORD: senha # Opcional: senha para o usuário específico
 
   rabbit:
-    container_name: swm-rabbit
+    container_name: swm-rabbit #usuario e senha padrao: guest e guest
     restart: always
     image: rabbitmq:3-management
     ports:
@@ -30,5 +30,5 @@ services:
       - swmnetwork
 
 networks:
-  swmnetwork:  # Definição da rede swmnetwork
+  swmnetwork:
     driver: bridge
